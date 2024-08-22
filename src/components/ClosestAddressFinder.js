@@ -47,7 +47,6 @@ const ClosestAddressFinder = () => {
           <p><strong>State:</strong> {closestAddress['STATE NAME']}</p>
           <p><strong>Staff In-Charge:</strong> {closestAddress['SPOC NAME']}</p>
           <p><strong>Organized By:</strong> {closestAddress['CO-ORDINATED BY']}</p>
-          <p><strong>Location:</strong> {closestAddress['ADDRESS']}</p>
           <p><strong>Latitude:</strong> {closestAddress['LATITUDE']}</p>
           <p><strong>Longitude:</strong> {closestAddress['LONGITUDE']}</p>
         </div>
