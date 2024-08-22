@@ -17,7 +17,7 @@ const ClosestAddressFinder = () => {
         console.log("User location retrieved:", userLocation);
 
         console.log("Attempting to read Excel file...");
-        const addresses = await readExcelFile('../NPTEL-College-Coordinates.xlsx');
+        const addresses = await readExcelFile('../Nptel_centres_TN.xlsx');
 
         const closest = findClosestAddress(userLocation, addresses);
         console.log("Closest address found:", closest);
@@ -41,16 +41,15 @@ const ClosestAddressFinder = () => {
       {closestAddress ? (
         <div>
           <h2><strong>Closest College Details</strong></h2>
-          <p><strong>Name:</strong> {closestAddress['Name of the College']}</p>
-          <p><strong>College ID:</strong> {closestAddress['College ID']}</p>
-          <p><strong>Status:</strong> {closestAddress['Status']}</p>
-          <p><strong>Address:</strong> {closestAddress.Address}</p>
-          <p><strong>State:</strong> {closestAddress.State}</p>
-          <p><strong>Staff In-Charge:</strong> {closestAddress['Staff InCharge']}</p>
-          <p><strong>Organized By:</strong> {closestAddress['Organized By']}</p>
-          <p><strong>Location:</strong> {closestAddress.Location}</p>
-          <p><strong>Latitude:</strong> {closestAddress.Latitude}</p>
-          <p><strong>Longitude:</strong> {closestAddress.Longitude}</p>
+          <p><strong>Name:</strong> {closestAddress['COLLEGE NAME']}</p>
+          <p><strong>College ID:</strong> {closestAddress['LC ID']}</p>
+          <p><strong>Address:</strong> {closestAddress['ADDRESS']}</p>
+          <p><strong>State:</strong> {closestAddress['STATE NAME']}</p>
+          <p><strong>Staff In-Charge:</strong> {closestAddress['SPOC NAME']}</p>
+          <p><strong>Organized By:</strong> {closestAddress['CO-ORDINATED BY']}</p>
+          <p><strong>Location:</strong> {closestAddress['ADDRESS']}</p>
+          <p><strong>Latitude:</strong> {closestAddress['LATITUDE']}</p>
+          <p><strong>Longitude:</strong> {closestAddress['LONGITUDE']}</p>
         </div>
       ) : (
         <div>Finding closest address...</div>

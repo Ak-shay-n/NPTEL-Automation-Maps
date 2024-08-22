@@ -19,8 +19,8 @@ export const getDistance = (lat1, lon1, lat2, lon2) => {
       const distance = getDistance(
         userLocation.latitude,
         userLocation.longitude,
-        address['Latitude'], // Updated to match the exact column name in Excel
-        address['Longitude'],  // Updated to match the exact column name in Excel
+        address['LATITUDE'], // Updated to match the exact column name in Excel
+        address['LONGITUDE'],  // Updated to match the exact column name in Excel
       );
   
       if (distance < minDistance) {
