@@ -32,6 +32,18 @@ const ClosestAddressFinder = () => {
     findAddress();
   }, []);
 
+  const redirectToMaps = () => {
+    if (closestAddress) {
+      const latitude = closestAddress['LATITUDE'];
+      const longitude = closestAddress['LONGITUDE'];
+      const collegeName = encodeURIComponent(closestAddress['COLLEGE NAME']); // Encode the college name for the URL
+  
+      // Open Google Maps with the location and college name
+      window.open(`https://www.google.com/maps/search/?api=1&query=${collegeName}+${latitude},${longitude}`, '_blank');
+    }
+  };
+  
+
   if (error) {
     return <div>Error: {error}</div>;
   }
@@ -40,7 +52,7 @@ const ClosestAddressFinder = () => {
     <div>
       {closestAddress ? (
         <div>
-          <h2><strong>Closest College Details</strong></h2>
+          <h2 className="mb-5"><strong>Closest College Details</strong></h2>
           <p><strong>Name:</strong> {closestAddress['COLLEGE NAME']}</p>
           <p><strong>College ID:</strong> {closestAddress['LC ID']}</p>
           <p><strong>Address:</strong> {closestAddress['ADDRESS']}</p>
@@ -49,6 +61,11 @@ const ClosestAddressFinder = () => {
           <p><strong>Organized By:</strong> {closestAddress['CO-ORDINATED BY']}</p>
           <p><strong>Latitude:</strong> {closestAddress['LATITUDE']}</p>
           <p><strong>Longitude:</strong> {closestAddress['LONGITUDE']}</p>
+          <button className="mt-5 p-2 bg-green-500 border-black border-2 font-bold rounded-xl cursor-pointer transition transform duration-200 hover:scale-95"
+            onClick={redirectToMaps}
+          >
+            Open in Google Maps
+          </button>
         </div>
       ) : (
         <div>Finding closest address...</div>
